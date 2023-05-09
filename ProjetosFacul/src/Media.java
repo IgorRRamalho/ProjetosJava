@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Media {
 
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class Media {
         System.out.printf("\nA nota do Aluno %s foi --> %.2f", nome , prova4);
         
         
-        System.out.printf("\n A média das notas foi de --> %f", ((prova1+prova2+prova3+prova4)/4));
+        System.out.printf("\n A média das notas foi de --> %.2f", ((prova1+prova2+prova3+prova4)/4));
     }
 }
         
