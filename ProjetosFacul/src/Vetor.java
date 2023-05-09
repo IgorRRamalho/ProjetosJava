@@ -2,7 +2,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 
-public class ex {
+public class Vetor {
        public static void main(String[] args) {
          
          Scanner leitor = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class ex {
             double result = soma / (double)quant;
            System.out.printf("O resultado da média é ->" + result);
    
-}
+        }
 }
 
                                                        

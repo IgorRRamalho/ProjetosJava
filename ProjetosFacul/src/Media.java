@@ -1,10 +1,5 @@
-import java.io.PrintStream;
-import java.util.Scanner;
-
-
 public class Media {
 
-    
     public static void main(String[] args) {
         
         Scanner leitor = new Scanner(System.in);
@@ -32,4 +27,6 @@ public class Media {
         
         
         System.out.printf("\n A média das notas foi de --> %f", ((prova1+prova2+prova3+prova4)/4));
+    }
+}
         
