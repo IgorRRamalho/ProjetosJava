@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /*
- * Recebendo Dados Teclado teste Visual 
+ * Recebendo Dados Teclado
  */
 
 public class Leitor {
