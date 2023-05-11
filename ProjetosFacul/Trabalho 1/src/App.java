@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class App {
    
     public static void main(String[] args) throws Exception {
-        int[] mesas = new int[10];
+        int[] mesas = new int[11];
         Menus menu = new Menus();
         ajuda util = new ajuda();
         Scanner leitor = new Scanner(System.in);
@@ -15,23 +15,22 @@ public class App {
         menu.menuinicial();
         int MenuInicial = leitor.nextInt();
         
-     
        switch(MenuInicial){
             
             case 1:
-                System.out.print("Mesas Disponíveis ->");   
-                for(int i=0; i<10; i++){
+            util.limpatela();    
+            System.out.print("Mesas Disponíveis ->");   
+                for(int i=1; i<11; i++){
                     soma += mesas[i];
                     if(mesas[i] == 0){
-                        System.out.print(i+1 +" - ");
+                        System.out.print(i + " - ");
                     }  
                 }
                 if(soma<10){
                     menu.Abrirmesa();
                     MenuAbrirmesa = leitor.nextInt();
                 }
-                     
-                    
+                        
                 if(soma==10){
                         util.limpatela();
                         System.out.println("\t\t\n NÃO HÁ MESAS DISPONÍVEIS");
@@ -60,8 +59,7 @@ public class App {
 
                         case 2:
                             util.limpatela();
-                            menu.menuinicial();
-                            MenuInicial = leitor.nextInt();
+                            continue;
                             
                  }               
                         
