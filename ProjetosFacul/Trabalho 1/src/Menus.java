@@ -11,7 +11,7 @@ public class Menus {
    
     void menuinicial(){
         System.out.println("---------------------------------------------------------------");
-        System.out.println("\t\tRESTAURANTE DOIS IRMÕES");
+        System.out.println("\t\tRESTAURANTE DOIS IRMÃOS");
         System.out.println("---------------------------------------------------------------");
         System.out.println("\t1. Abrir mesa\n\t2. Verificar mesa\n\t3. Fechar mesa");
         System.out.println("---------------------------------------------------------------");
@@ -25,6 +25,7 @@ public class Menus {
             System.out.print("Mesas Disponíveis ->");   
                 for(int i=1; i<11; i++){
                     soma +=mesas[i];
+    
                     if(mesas[i] == 0){
                         System.out.print(i + " - ");
                     }  
