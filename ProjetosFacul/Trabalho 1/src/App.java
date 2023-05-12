@@ -6,8 +6,7 @@ public class App {
         Menus menu = new Menus();
         ajuda util = new ajuda();
        
-        
-       
+ 
         menu.menuinicial(); 
 
     }

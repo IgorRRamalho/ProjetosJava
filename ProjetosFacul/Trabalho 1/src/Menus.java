@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Menus {
 
-   int MenuAbrirmesa;
+   int MenuAbrirmesa, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
    Scanner leitor = new Scanner(System.in);
    int[] mesas = new int[11];
    ajuda util = new ajuda();
@@ -21,8 +21,8 @@ public class Menus {
         switch(MenuInicial){
             
             case 1:
-            util.limpatela();    
-            System.out.print("Mesas Disponíveis ->");   
+                util.limpatela();    
+                System.out.print("Mesas Disponíveis ->");   
                 for(int i=1; i<11; i++){
                     soma +=mesas[i];
     
@@ -41,6 +41,16 @@ public class Menus {
                         Abrirmesa();
                         
                     }
+            case 2:
+
+
+
+
+
+            case 3:
+                    
+                
+
    
         }
         
@@ -57,7 +67,7 @@ public class Menus {
             case 1:
                 System.out.println("---------------------------------------------------------------\n");   
                 System.out.print("Indique o número da mesa que deseja abrir ->");
-                int MesaEscolhida = leitor.nextInt();
+                MesaEscolhida = leitor.nextInt();
                 if (mesas[MesaEscolhida] == 1){
                     System.out.println("\n\t\tMESA "+ MesaEscolhida +" INDISPONÍVEL");
                    Abrirmesa();
@@ -66,24 +76,135 @@ public class Menus {
                 if (mesas[MesaEscolhida] == 0){
                     mesas[MesaEscolhida] = 1;
                     System.out.println("\n\t\tMESA "+ MesaEscolhida + " ABERTA!");
-                    menuinicial();
-                    
+                    menuinicial();           
                 }
-
             case 2:
                 util.limpatela();
                 menuinicial();
-                
-                
+         
      }               
 
     }
+    void VerificarMesa(){
+        System.out.println("\n---------------------------------------------------------------");
+        System.out.println("\t1. Informe o número da mesa\n\t2. Retornar ao Menu inicial\n");
+        System.out.print("Escolha uma opção->");
+        MenuVerificarMesa= leitor.nextInt();
 
+        switch(MenuVerificarMesa){
+            case 1:
+                util.limpatela();    
+                System.out.print("Mesas Disponíveis ->");   
+                for(int i=1; i<11; i++){
+                    soma +=mesas[i];
+
+                if(mesas[i] == 1){
+                    System.out.print(i + " - ");
+                }  
+        }
+                System.out.println("\n---------------------------------------------------------------");
+                System.out.println("\tInforme o numero da mesa ou digite 0 para retornar ao menu anterior ->\n");
+                MesaEscolhida = leitor.nextInt();
+
+                if(MesaEscolhida == 0){
+                    VerificarMesa();
+                }
+                if(mesas[MesaEscolhida] == 0){
+                    System.out.println("MESA INVÁLIDA");
+                    VerificarMesa();
+                }
+                if(mesas[MesaEscolhida] == 1){
+                   PedidoMesa();
+                }
+    }
+    }
+    void PedidoMesa(){
+        util.limpatela();
+        System.out.println("\n---------------------------------------------------------------");
+        System.out.println("\t1. Fazer pedido de item do cardápio\n\t2. Cancelar pedido de item do cardápio\n\t3. Verificar itens pedidos\n\t4. Retornar ao Menu Inicial");
+        System.out.print("Escolha uma opção->");
+        MenuPedidoMesa = leitor.nextInt();
+
+        switch(MenuPedidoMesa){
+            case 1:
+                System.out.println("Digite o código do item do cardápio ou informe 0 para retornar ao menu anterior ->");
+                CodigoCard = leitor.nextInt();
+
+                if(CodigoCard == 0){
+                    PedidoMesa();
+                }
+                else{
+                    /* AQUI FICARA O VOID DO SWITCH DO CARDAPIO COM OS CODIGOS */
+                }
+            case 2:
+                
+
+             
+        }
+
+    }
+
+    void Confirmar(){
+        System.out.println("Este é o item que deseja?");
+        System.out.println("\t1. Sim\n\t2. Não\n\t");
+        System.out.print("Escolha uma opção->");
+        opconfirmar = leitor.nextInt();
+
+        switch(opconfirmar){
+            case 1:
+                System.out.println("Informe a quantidade do item escolhido ->");
+                /*AQUI FICARA MATRIZ GERAL DE PRODUTO E QUANTIDADE, PRA VINCULAR A MESA USE A VARIAVEL (MesaEscolhida) ANDANDO DUAS COLUNAS PARA FRENTE */
+            case 2:
+            /*AQUI FICARA O FUTURO VOID DE MENU PEDIDO MESA(SOLUÇÃO TEMPORÁRIA */
+
+
+        }
+    }
+
+    void MenuFecharMesa(){
+        System.out.println("Este é o item que deseja?");
+        System.out.println("\t1. Informar mesa que deseja fechar.\n\t2. Retornar ao Menu Inicial.\n\t");
+        System.out.print("Escolha uma opção->");
+        opFecharMesa = leitor.nextInt();
+
+            switch(opFecharMesa){
+                case 1:
+                    util.limpatela();  
+                    System.out.print("Mesas Abertas ->");   
+                    for(int i=1; i<11; i++){
     
+    
+                    if(mesas[i] == 1){
+                        System.out.print(i + " - ");
+                    }  
+                    System.out.println("---------------------------------------------------------------\n");   
+                    System.out.print("Informe o número da mesa que deseja fechar ou informe 0 para retornar ao menu anterior ->");
+                    MesaFechar = leitor.nextInt();
 
+                    if(MesaFechar == 0){
+                        MenuFecharMesa();
+                    }
+                    if(mesas[MesaFechar] == 0){
+                        MenuFecharMesa();
+                    }
+                    else{
+                        System.out.println("Tem certeza que deseja fechar a mesa "+ MesaEscolhida+"? ->");
+                        System.out.println("\t1. Sim\n\t2. Não\n\t");
+                        System.out.print("Escolha uma opção->");
+                        ConfirmFecharMesa = leitor.nextInt();
 
+                            switch(ConfirmFecharMesa){
+                                case 1:
+                                System.out.println("MESA "+ MesaEscolhida+" FECHADA");
 
+                            }
+                    }
 
+            }
+
+    }
+
+}
 }
     
 
