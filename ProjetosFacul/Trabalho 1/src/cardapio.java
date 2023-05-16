@@ -94,7 +94,13 @@ public class cardapio {
         System.out.println("---------------------------------------------------------------");
         System.out.printf("\t\tCardápio");
         System.out.println("---------------------------------------------------------------");
-        System.out.printf("")
+        System.out.printf("\tPratos\n");
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("Codigo                      Item                      Preço(R$)");
+        System.out.println("101                Filé de frango grelhado                16,50");
+        System.out.println("102                    Iscas de frango                    22,35");
+        System.out.println("103                    Iscas de carne                     22,35");
+        System.out.println("104                    Bife acebolado                     26,99");
     }
     
 }
