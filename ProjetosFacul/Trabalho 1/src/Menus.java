@@ -43,6 +43,7 @@ public class Menus {
                         
                     }
             case 2:
+            VerificarMesa();
 
 
 
@@ -196,7 +197,7 @@ public class Menus {
 
                             switch(ConfirmFecharMesa){
                                 case 1:
-                                System.out.println("MESA "+ MesaEscolhida+" FECHADA");
+                                System.out.println("MESA "+ MesaEscolhida+" FECHADA IGOR");
 
                             }
                     }
