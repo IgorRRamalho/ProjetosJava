@@ -2,11 +2,35 @@ public class cardapio {
 
     int CodigoCard;
     Menus cardapio = new Menus()
+    int [][]Nomes = new int[27][1]; 
+    int [][]CQP = new int[27][12]; 
+   
     
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     void Cardapio(){
 
         switch(CodigoCard){
             case 101:
+                
                 cardapio.Confirmar();
 
             case 102:

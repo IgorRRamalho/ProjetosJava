@@ -6,6 +6,7 @@ public class Menus {
    Scanner leitor = new Scanner(System.in);
    int[] mesas = new int[11];
    ajuda util = new ajuda();
+   cardapio card = new cardapio();
    int soma = 0;
    
    
@@ -128,13 +129,13 @@ public class Menus {
         switch(MenuPedidoMesa){
             case 1:
                 System.out.println("Digite o código do item do cardápio ou informe 0 para retornar ao menu anterior ->");
-                CodigoCard = leitor.nextInt();
+                card.CodigoCard = leitor.nextInt();
 
-                if(CodigoCard == 0){
+                if(card.CodigoCard == 0){
                     PedidoMesa();
                 }
                 else{
-                    /* AQUI FICARA O VOID DO SWITCH DO CARDAPIO COM OS CODIGOS */
+                   card.Cardapio();
                 }
             case 2:
                 
