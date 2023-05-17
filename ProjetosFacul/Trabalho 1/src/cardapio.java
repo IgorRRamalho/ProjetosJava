@@ -101,6 +101,34 @@ public class cardapio {
         System.out.println("102                    Iscas de frango                    22,35");
         System.out.println("103                    Iscas de carne                     22,35");
         System.out.println("104                    Bife acebolado                     26,99");
+        System.out.println("105               File de frango a milanesa               28,99");
+        System.out.println("106                   File a parmegiana                   35,50");
+        System.out.println("107                     Ceasar salad                      16,50");
+        System.out.println("108                Espaguete ao alho e oleo               15,00");
+        System.out.println("109                   Panqueca de carne                   19,99");
+        System.out.println("110                   Panqueca de queijo                  19,99");
+        System.out.println("---------------------------------------------------------------");
+        System.out.printf("\tBebidas\n");
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("201                  Suco de laranja(500ml)                7,00");
+        System.out.println("202                  Suco de abacaxi(500ml)                7,00");
+        System.out.println("203                  Suco de maracuja(500ml)               7,00");
+        System.out.println("204                       Agua(500ml)                      4,50");
+        System.out.println("205                    Coca-cola(350ml)                    5,50");
+        System.out.println("206                 Guarana antartica(350ml)               5,50");
+        System.out.println("207                       Fanta(350ml)                     5,50");
+        System.out.println("---------------------------------------------------------------");
+        System.out.printf("\tSobremesa\n");
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("301                     Fatia de pudim                     8,90");
+        System.out.println("302                    Fatia cheesecake                   12,00");
+        
+
+
+        
+
+
+
     }
     
 }
