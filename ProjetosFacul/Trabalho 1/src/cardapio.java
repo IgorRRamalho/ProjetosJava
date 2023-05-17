@@ -1,10 +1,11 @@
 public class cardapio {
 
     int CodigoCard;
-    Menus cardapio = new Menus()
-    int [][]Nomes = new int[27][1]; 
-    int [][]CQP = new int[27][12]; 
+    Menus cardapio = new Menus();
+    String [][]Nomes = new String[27][1]; 
+    int [][]CQP = new int[27][12];
    
+    
     
    
    
@@ -146,7 +147,7 @@ public class cardapio {
         System.out.println("---------------------------------------------------------------");
         System.out.println("301                     Fatia de pudim                     8,90");
         System.out.println("302                    Fatia cheesecake                   12,00");
-        
+
 
 
         
