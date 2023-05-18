@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menus {
 
    int MenuAbrirmesa, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
+   int QuantidadeComida;
    Scanner leitor = new Scanner(System.in);
    int[] mesas = new int[11];
    ajuda util = new ajuda();
@@ -45,14 +46,8 @@ public class Menus {
             case 2:
             VerificarMesa();
 
-
-
-
-
             case 3:
-                    
-                
-
+            MenuFecharMesa();
    
         }
         
@@ -96,7 +91,7 @@ public class Menus {
         switch(MenuVerificarMesa){
             case 1:
                 util.limpatela();    
-                System.out.print("Mesas Disponíveis ->");   
+                System.out.print("Mesas Abertas ->");   
                 for(int i=1; i<11; i++){
                     soma +=mesas[i];
 
@@ -155,7 +150,10 @@ public class Menus {
         switch(opconfirmar){
             case 1:
                 System.out.println("Informe a quantidade do item escolhido ->");
-                /*AQUI FICARA MATRIZ GERAL DE PRODUTO E QUANTIDADE, PRA VINCULAR A MESA USE A VARIAVEL (MesaEscolhida) ANDANDO DUAS COLUNAS PARA FRENTE */
+                QuantidadeComida = leitor.nextInt();
+                card.CadastroQuant();
+
+               
             case 2:
             /*AQUI FICARA O FUTURO VOID DE MENU PEDIDO MESA(SOLUÇÃO TEMPORÁRIA */
 
@@ -164,7 +162,6 @@ public class Menus {
     }
 
     void MenuFecharMesa(){
-        System.out.println("Este é o item que deseja?");
         System.out.println("\t1. Informar mesa que deseja fechar.\n\t2. Retornar ao Menu Inicial.\n\t");
         System.out.print("Escolha uma opção->");
         opFecharMesa = leitor.nextInt();
@@ -206,7 +203,6 @@ public class Menus {
 
     }
     
-
 }
 }
     
