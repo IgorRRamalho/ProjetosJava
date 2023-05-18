@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Menus {
 
-   int MenuAbrirmesa, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
+   int MenuAbrirmesa, i, ExcluirItem, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
    int QuantidadeComida;
    Scanner leitor = new Scanner(System.in);
    int[] mesas = new int[11];
@@ -124,21 +124,44 @@ public class Menus {
 
         switch(MenuPedidoMesa){
             case 1:
-                System.out.println("Digite o código do item do cardápio ou informe 0 para retornar ao menu anterior ->");
-                card.CodigoCard = leitor.nextInt();
+                DigiteCod();
+            
 
-                if(card.CodigoCard == 0){
-                    PedidoMesa();
-                }
-                else{
-                   card.Cardapio();
-                }
+              
             case 2:
+                System.out.printf("\tITENS PEDIDOS NA MESA %d\n"+ MesaEscolhida);
+                System.out.println("---------------------------------------------------------------");
+                System.out.println("Codigo                      Item                      Quantidade");
+                for(i=0; i<27; i++){
+                    if(card.CPQ[i][MesaEscolhida + 2] != 0){
+                        System.out.printf("%d                %s                %d", card.CPQ[i][0], card.nomes[i][0], card.CPQ[i][MesaEscolhida + 2] );
+                    }
+                System.out.print("Qual item deseja excluir ?");
+                ExcluirItem = leitor.nextInt(i);
+
+                    
+                }
                 
 
              
         }
+   
+       
 
+    }
+
+    void DigiteCod(){
+        System.out.println("Digite o código do item do cardápio ou informe 0 para retornar ao menu anterior ->");
+        card.CodigoCard = leitor.nextInt();
+        
+        if(card.CodigoCard == 0){
+            PedidoMesa();
+        }
+        else{
+           card.Cardapio();
+           DigiteCod();
+        }
+        
     }
 
     void Confirmar(){
@@ -155,7 +178,7 @@ public class Menus {
 
                
             case 2:
-            /*AQUI FICARA O FUTURO VOID DE MENU PEDIDO MESA(SOLUÇÃO TEMPORÁRIA */
+            DigiteCod();
 
 
         }
