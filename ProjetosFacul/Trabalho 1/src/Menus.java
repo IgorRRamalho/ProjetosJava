@@ -1,9 +1,12 @@
 import java.util.Scanner;
 
+
 public class Menus {
 
    int MenuAbrirmesa, i, ExcluirItem, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
    int QuantidadeComida;
+   float TotalItem;
+   float []TotalMesa = new float[10];
    Scanner leitor = new Scanner(System.in);
    int[] mesas = new int[11];
    ajuda util = new ajuda();
@@ -103,7 +106,7 @@ public class Menus {
                 System.out.println("\tInforme o numero da mesa ou digite 0 para retornar ao menu anterior ->\n");
                 MesaEscolhida = leitor.nextInt();
 
-                if(MesaEscolhida == 0){
+                if(mesas[MesaEscolhida] == 0){
                     VerificarMesa();
                 }
                 if(mesas[MesaEscolhida] == 0){
@@ -138,18 +141,44 @@ public class Menus {
                     }
                 System.out.print("Qual item deseja excluir ?");
                 ExcluirItem = leitor.nextInt(i);
-
+                card.Excluir();
                     
                 }
+            case 3:
+            MostraPedidos();
                 
-
-             
         }
-   
-       
-
     }
 
+    
+    void MostraPedidos(){
+        System.out.printf("\tITENS PEDIDOS NA MESA %d\n"+ MesaEscolhida);
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("Codigo                      Item                      Preço                   Quantidade                      Total do Item");
+        for(i=0; i<27; i++){
+            if(card.CPQ[i][MesaEscolhida + 2] != 0){
+                TotalItem = card.CPQ[i][1] * card.CPQ[i][MesaEscolhida + 2];
+                TotalMesa[MesaEscolhida] += TotalItem;
+                System.out.printf("%d                %s                       %f                          %d                                %f", card.CPQ[i][0], card.nomes[i][0], card.CPQ[i][1], card.CPQ[i][MesaEscolhida + 2], TotalItem);
+            }    
+        }
+        System.out.println("TOTAL DA MESA --> %f"+ TotalMesa);  
+        System.out.println("Pressione uma tecla para retornar ao Menu Inicial");
+        leitor.nextLine(); 
+        util.limpatela();
+        menuinicial();
+    
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void DigiteCod(){
         System.out.println("Digite o código do item do cardápio ou informe 0 para retornar ao menu anterior ->");
         card.CodigoCard = leitor.nextInt();
@@ -185,7 +214,7 @@ public class Menus {
     }
 
     void MenuFecharMesa(){
-        System.out.println("\t1. Informar mesa que deseja fechar.\n\t2. Retornar ao Menu Inicial.\n\t");
+        System.out.print("\t1. Informar mesa que deseja fechar.\n\t2. Retornar ao Menu Inicial.\n\t");
         System.out.print("Escolha uma opção->");
         opFecharMesa = leitor.nextInt();
 
@@ -196,9 +225,10 @@ public class Menus {
                     for(int i=1; i<11; i++){
     
     
-                    if(mesas[i] == 1){
+                        if(mesas[i] == 1){
                         System.out.print(i + " - ");
-                    }  
+                        }  
+                    }
                     System.out.println("---------------------------------------------------------------\n");   
                     System.out.print("Informe o número da mesa que deseja fechar ou informe 0 para retornar ao menu anterior ->");
                     MesaFechar = leitor.nextInt();
@@ -217,16 +247,27 @@ public class Menus {
 
                             switch(ConfirmFecharMesa){
                                 case 1:
-                                System.out.println("MESA "+ MesaEscolhida+" FECHADA IGOR");
+                                    mesas[MesaEscolhida] = 0;
+                                    for(i = 0; i<27; i++){
+                                        card.CPQ[i][MesaEscolhida + 2] = 0;
+                                    }
+                                    System.out.println("MESA "+ MesaEscolhida);
+                                    MostraPedidos();
+                                case 2: 
+                                MenuFecharMesa();
+
+
 
                             }
                     }
 
             }
-
     }
+}
     
-}
-}
+    
+
+
+
     
 

@@ -6,7 +6,7 @@ public class cardapio {
     
     Menus cardapio = new Menus();
     String [][]nomes = new String[27][1]; 
-    int [][]CPQ = new int[27][12]; 
+    float [][]CPQ = new float[27][12]; 
    
    
     
@@ -323,6 +323,11 @@ public class cardapio {
         }
     }
         
+   
+   
+   
+   
+   
     void Excluir(){
 
         switch(cardapio.ExcluirItem){
@@ -338,16 +343,43 @@ public class cardapio {
         
 
             case 102:
-                CPQ[1][cardapio.MesaEscolhida + 2] += cardapio.QuantidadeComida;    
-            
+            if(CPQ[1][cardapio.MesaEscolhida + 2] > 1){
+                System.out.print("Quantos pedidos de %s deseja cancelar ? ");
+                QuantExc = cardapio.leitor.nextInt();
+                    if(QuantExc > CPQ[1][cardapio.MesaEscolhida + 2]){
+                        System.out.print("Valor Inválido");
+                        cardapio.VerificarMesa();
+                    }
+            }
             case 103:
-                CPQ[2][cardapio.MesaEscolhida + 2] += cardapio.QuantidadeComida;    
+            if(CPQ[2][cardapio.MesaEscolhida + 2] > 1){
+                System.out.print("Quantos pedidos de %s deseja cancelar ? ");
+                QuantExc = cardapio.leitor.nextInt();
+                    if(QuantExc > CPQ[2][cardapio.MesaEscolhida + 2]){
+                        System.out.print("Valor Inválido");
+                        cardapio.VerificarMesa();
+                    }
+            } 
             
             case 104:
-                CPQ[3][cardapio.MesaEscolhida + 2] += cardapio.QuantidadeComida;    
+            if(CPQ[3][cardapio.MesaEscolhida + 2] > 1){
+                System.out.print("Quantos pedidos de %s deseja cancelar ? ");
+                QuantExc = cardapio.leitor.nextInt();
+                    if(QuantExc > CPQ[3][cardapio.MesaEscolhida + 2]){
+                        System.out.print("Valor Inválido");
+                        cardapio.VerificarMesa();
+                    }
+            }
             
             case 105:
-                CPQ[4][cardapio.MesaEscolhida + 2] += cardapio.QuantidadeComida;    
+            if(CPQ[4][cardapio.MesaEscolhida + 2] > 1){
+                System.out.print("Quantos pedidos de %s deseja cancelar ? ");
+                QuantExc = cardapio.leitor.nextInt();
+                    if(QuantExc > CPQ[4][cardapio.MesaEscolhida + 2]){
+                        System.out.print("Valor Inválido");
+                        cardapio.VerificarMesa();
+                    }
+            }
             
             case 106:
                 CPQ[5][cardapio.MesaEscolhida + 2] += cardapio.QuantidadeComida;    
@@ -417,11 +449,5 @@ public class cardapio {
 
         }
     }
-
-    
-
-/*Ao digitar o código o aplicativo deve mostrar o nome do item e
-apresentar a mensagem “Este é o item que deseja?” indicando “1 – para Sim” e “2 –
-para Não”. */
 }
 
