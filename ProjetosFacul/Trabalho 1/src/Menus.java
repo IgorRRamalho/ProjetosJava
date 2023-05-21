@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Menus {
 
+    
+
    int MenuAbrirmesa, i, ExcluirItem, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa;
    int QuantidadeComida;
    float TotalItem;
