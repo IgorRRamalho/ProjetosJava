@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Menus {
 
     
-
    int MenuAbrirmesa, i, ExcluirItem, MenuVerificarMesa, MesaEscolhida, MenuPedidoMesa, CodigoCard, opconfirmar, opFecharMesa, MesaFechar,  ConfirmFecharMesa, soma, QuantExc;
    int QuantidadeComida;
    float TotalItem;
