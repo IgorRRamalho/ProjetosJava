@@ -167,14 +167,15 @@ public class Menus {
             case 2:
                 util.limpatela();
                 System.out.printf("\t\tITENS PEDIDOS NA MESA %d\n", MesaEscolhida);
-                System.out.println("---------------------------------------------------------------------------------------\n");
-                System.out.println("Codigo                      Item                      Quantidade");
+                System.out.println("---------------------------------------------------------------------------------------");
+                System.out.println("| Codigo         | Item                               | Quantidade");
                 
                 for(i=0; i<27; i++){
                     if(CPQ[i][(MesaEscolhida + 2)] != 0){
-                        System.out.printf("\n%.0f                %s                %.0f", CPQ[i][0], nomes[i][0], CPQ[i][(MesaEscolhida + 2)] );
+                        System.out.printf("\n| %-10.0f     | %-27s        | %-5.0f", CPQ[i][0], nomes[i][0], CPQ[i][(MesaEscolhida + 2)] );
                     }        
                 }
+                System.out.println("\n---------------------------------------------------------------------------------------");
                 System.out.print("\n\nQual item deseja excluir(Código) ? ->");
                 ExcluirItem = leitor.nextInt();             
                 Excluir();
@@ -267,7 +268,7 @@ public class Menus {
             nomes[23][0] = "Porcao extra de arroz";
             nomes[24][0] = "Porcao extra de feijao";
             nomes[25][0] = "Adicional de ovo frito";
-            nomes[26][0] = "Adicional de bacon";  
+            nomes[26][0] = "Adicional de fatia de bacon";  
 
             CPQ[0][0] = 101;
             CPQ[0][1] = 16.50f;
@@ -686,7 +687,7 @@ public class Menus {
             
     
                 case 102:
-                    if(CPQ[1][(MesaEscolhida + 2)] > 0){
+                    if(CPQ[1][(MesaEscolhida + 2)] > 1){
                         System.out.println("---------------------------------------------------------------\n");  
                         System.out.printf("Quantos pedidos de %s deseja cancelar? ->", nomes[1][0]);
                         QuantExc = leitor.nextInt();
@@ -702,51 +703,52 @@ public class Menus {
                     break;
                 
                 case 103:
-                    if(CPQ[2][(MesaEscolhida + 2)] > 0){
+                    if(CPQ[2][(MesaEscolhida + 2)] > 1){
                         System.out.println("---------------------------------------------------------------\n");  
                         System.out.printf("Quantos pedidos de %s deseja cancelar? ->", nomes[2][0]);
                         QuantExc = leitor.nextInt();
                             if(QuantExc > CPQ[2][MesaEscolhida + 2]){
                                 System.out.print("Valor Inválido");
                                 VerificarMesa();
-                                CPQ[2][(MesaEscolhida + 2)] -= QuantExc;
-                                PedidoMesa();
                                 
                             }
+                        CPQ[2][(MesaEscolhida + 2)] -= QuantExc;
+                        PedidoMesa();
                     } 
                     CPQ[2][(MesaEscolhida + 2)] -= 1;
                     PedidoMesa();
                     break;
                 
                 case 104:
-                    if(CPQ[3][(MesaEscolhida + 2)] > 0){
+                    if(CPQ[3][(MesaEscolhida + 2)] > 1){
                         System.out.println("---------------------------------------------------------------\n");  
                         System.out.printf("Quantos pedidos de %s deseja cancelar? ->", nomes[3][0]);
                         QuantExc = leitor.nextInt();
                             if(QuantExc > CPQ[3][MesaEscolhida + 2]){
                                 System.out.print("Valor Inválido");
                                 VerificarMesa();      
-                                CPQ[3][(MesaEscolhida + 2)] -= QuantExc;
-                                PedidoMesa();     
+                                  
                             }
+                            CPQ[3][(MesaEscolhida + 2)] -= QuantExc;
+                            PedidoMesa();   
                     }
                     CPQ[3][(MesaEscolhida + 2)] -= 1;
                     PedidoMesa();
                     break;
                     
                 case 105:
-                    if(CPQ[4][(MesaEscolhida + 2)] > 0){
+                    if(CPQ[4][(MesaEscolhida + 2)] > 1){
                         System.out.println("---------------------------------------------------------------\n");  
                         System.out.printf("Quantos pedidos de %s deseja cancelar? ->", nomes[4][0]);
                         QuantExc = leitor.nextInt();
                             if(QuantExc > CPQ[4][MesaEscolhida + 2]){
                                 System.out.print("Valor Inválido");
-                                VerificarMesa();
-                                CPQ[4][(MesaEscolhida + 2)] -= QuantExc;
-                                PedidoMesa();                            
+                                VerificarMesa();                         
                             }
+                        CPQ[4][(MesaEscolhida + 2)] -= QuantExc;
+                        PedidoMesa();   
                     }
-                    CPQ[3][(MesaEscolhida + 2)] -= 1;
+                    CPQ[4][(MesaEscolhida + 2)] -= 1;
                     PedidoMesa();
                     break;
                 
@@ -835,27 +837,40 @@ public class Menus {
                     break;
 
                 case 407:
-                    CPQ[27][MesaEscolhida + 2] += QuantidadeComida;    
+                    if(CPQ[27][(MesaEscolhida + 2)] > 1){
+                        System.out.println("---------------------------------------------------------------\n");  
+                        System.out.printf("Quantos pedidos de %s deseja cancelar? ->", nomes[2][0]);
+                        QuantExc = leitor.nextInt();
+                            if(QuantExc > CPQ[27][MesaEscolhida + 2]){
+                                System.out.print("Valor Inválido");
+                                VerificarMesa();
+                                
+                            }
+                        CPQ[27][(MesaEscolhida + 2)] -= QuantExc;
+                        PedidoMesa();
+                    } 
+                    CPQ[27][(MesaEscolhida + 2)] -= 1;
+                    PedidoMesa();
                     break;
     
             }
         }
         String presssiona;
     void MostraPedidos(){
-            util.limpatela();
+            
             TotalMesa[MesaEscolhida] = 0;
             System.out.printf("\t\t\tITENS PEDIDOS NA MESA %d\n", MesaEscolhida);
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
-            System.out.println("Codigo           Item                           Preço               Quantidade               Total do Item");                                                                                
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+            System.out.println("| Codigo         | Item                               | Preço         | Quantidade      | Total do Item  |");                                                                                
             for(i=0; i<27; i++){
                 if(CPQ[i][MesaEscolhida + 2] != 0){
                     TotalItem = CPQ[i][1] * CPQ[i][MesaEscolhida + 2];
                     TotalMesa[MesaEscolhida] += TotalItem;
-                    System.out.printf("\n%.0f           %s                           %.2f               %.0f               %.2f", CPQ[i][0], nomes[i][0], CPQ[i][1], CPQ[i][MesaEscolhida + 2], TotalItem);
+                    System.out.printf("\n| %-10.0f     | %-27s        | %-5.2f         | %-5.0f           | %-5.2f ", CPQ[i][0], nomes[i][0], CPQ[i][1], CPQ[i][MesaEscolhida + 2], TotalItem);
                 
                 }    
             }
-            System.out.println("\n---------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("\n------------------------------------------------------------------------------------------------------------");
             System.out.printf("\n\nTOTAL DA MESA --> %.2f", TotalMesa[MesaEscolhida]);  
             System.out.println("\n\n\t\tPressione uma tecla para retornar ao Menu Inicial");
             leitor.nextLine();
@@ -909,7 +924,7 @@ public class Menus {
                                     case 1:
                                         mesas[MesaEscolhida] = 0;
                                        
-                                        System.out.println("\t\t\tMESA "+ MesaEscolhida +" FECHADA\n\n");
+                                        System.out.println("\n\n\t\t\tMESA "+ MesaEscolhida +" FECHADA\n\n");
                                         MostraPedidos();
                                         for(i = 0; i<27; i++){
                                             CPQ[i][MesaEscolhida + 2] = 0;
