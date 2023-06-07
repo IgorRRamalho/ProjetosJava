@@ -51,39 +51,54 @@ public class Menus {
         System.out.println("\nJogo " + (i + 1) + ":");
 
         System.out.println("Escolha uma opção para lançar os números do jogo:");
-        System.out.println("1-Modo Manual");
-        System.out.println("2-Modo aleatório e automático");
+        System.out.println("\n\t1-Modo Manual\t2-Modo aleatório e automático\n");
+       
         System.out.print("Escolha uma opção ->");
         int opmodo = leitor.nextInt();
 
         switch(opmodo){
 
             case 1:
-                for ( i=0; i<6; i++){
-                    System.out.print("Digite o número " + (i + 1) + "-> ");
-                    NumEsc = leitor.nextInt();
-                    if (NumEsc < 1 || NumEsc > 60) {
-                        System.out.println("Número inválido. Tente novamente.");
-                        i--;
-                        continue;
+                for(cont=0; cont<QuantJogo; cont++){
+                    for( i=0; i<6; i++){
+                        System.out.println("---------------------------------------------------------------");
+                        System.out.print("Digite o número " + (i + 1) + "-> ");
+                        NumEsc = leitor.nextInt();
+                        if (NumEsc < 1 || NumEsc > 60) {
+                            System.out.println("Número inválido. Tente novamente.");
+                            i--;
+                            continue;
+                        }
+                        if (Jogos.contains(NumEsc)) {
+                            System.out.println("Número já escolhido. Tente novamente.");
+                            i--;
+                            continue;
+                        }
+                    
                     }
-                    if (Jogos.contains(NumEsc)) {
-                        System.out.println("Número já escolhido. Tente novamente.");
-                        i--;
-                        continue;
-                    }
-                    Jogos.add(NumEsc);
                 }
+                Jogos.add(NumEsc);
+                Collections.sort(Jogos);     
+                JogosLançados.add(Jogos);
+
+                SalvarJogo();
+
+                break;
             case 2:     
-                for(cont=0; cont>6; cont++){               
+            for(cont=0; cont<QuantJogo; cont++){
+                for(cont=0; cont<6; cont++){               
                     NumEsc = alea.nextInt(60) + 1;
                     NumeroAleatorio.add(NumEsc);                  
-                }   
-                Jogos.addAll(NumeroAleatorio);
+                }         
+             }  
+             Jogos.addAll(NumeroAleatorio);
+             Collections.sort(Jogos);     
+             JogosLançados.add(Jogos);
+
+             SalvarJogo();
+             break;
+        }
         
-        }  
-        Collections.sort(Jogos);     
-        JogosLançados.add(Jogos);
     }   
     
     void SalvarJogo(){
