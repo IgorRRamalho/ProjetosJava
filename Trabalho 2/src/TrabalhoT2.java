@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.List;
 import java.io.IOException;
 
-public class App {
+public class TrabalhoT2 {
     public static void main(String[] args) throws Exception {
         
         int i, cont, cont2;
