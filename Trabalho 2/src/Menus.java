@@ -18,7 +18,7 @@ import java.util.Random;
 public class Menus {
 
     TrabalhoT2 princi = new TrabalhoT2();
-    int i, cont, QuantJogo, NumEsc;
+    int i, cont, QuantJogo, NumEsc, ver;
     Scanner leitor = new Scanner(System.in);
     Ajuda util = new Ajuda();
     List<List<Integer>> Sorteio = new ArrayList<>();  
@@ -49,7 +49,15 @@ public class Menus {
                 
 
             case 2:
+            if(ver == 0){
+                util.limpatela();
+                System.out.println("---------------------------------------------------------");
+                System.out.print("\t\tNÃO HÁ JOGOS LANÇADOS\n");
+                MenuInicial();
+            }
+            else{
                 MostrarJogos();
+            }
                 break;
 
             case 3:
@@ -57,7 +65,15 @@ public class Menus {
                 break;
 
             case 4:
+                if(ver == 0){
+                    util.limpatela();
+                    System.out.println("---------------------------------------------------------");
+                    System.out.print("\t\tNÃO HÁ JOGOS LANÇADOS\n");
+                    MenuInicial();
+                }
+                else{
                 VerificarAcertos();
+                }
                 break;
 
             case 6:
@@ -88,6 +104,7 @@ public class Menus {
     }
 
     void Lançamento(){
+        ver = 1;
         LimpJogos();
         util.limpatela();
         System.out.println("---------------------------------------------------------------");
