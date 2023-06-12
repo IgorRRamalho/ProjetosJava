@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class MegaSenaGame {
+public class CHATGPT {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 60;
     private static final int NUMBERS_PER_GAME = 6;

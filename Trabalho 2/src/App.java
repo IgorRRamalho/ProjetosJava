@@ -19,20 +19,10 @@ public class App {
         
         
         menu.MenuInicial();
-        int opMain = leitor.nextInt();
 
-        switch(opMain){
-            case 1:
-                menu.Lançamento();
-                break;
 
-            case 2:
-                break;
-
-            case 0:
-                break;
-            
         }
+      
     }
 }
        
