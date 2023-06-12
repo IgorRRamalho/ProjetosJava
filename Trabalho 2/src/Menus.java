@@ -130,6 +130,7 @@ public class Menus {
                     linha.append(num).append(" ");
                 }
                 Buff.write(linha.toString().trim());
+                Buff.flush();
                 Buff.newLine();
             }
             System.out.println("------------------------------------------------------------------------");
@@ -172,14 +173,16 @@ public class Menus {
         try(BufferedWriter Buff = new BufferedWriter(new FileWriter("Sorteio.txt"))){
             for(List<Integer> NumSorteio : Sorteio){
                 linha.setLength(0);
+                System.out.println("\n----------------------------------------------------------");
+                System.out.println("\nNÚMEROS SORTEADOS:");
                 for(int num : NumSorteio){
+                    System.out.print(num+" ");
                     linha.append(num).append(" ");
                 }
                 Buff.write(linha.toString().trim());
+                Buff.flush();
                 Buff.newLine();
             }
-            System.out.println("------------------------------------------------------------------------");
-            System.out.print("\t\tSORTEIO LANÇADOS E REGISTRADOS NO ARQUIVO");
             MenuInicial();
             
         }catch (IOException e) {
