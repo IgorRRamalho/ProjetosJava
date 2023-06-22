@@ -27,6 +27,7 @@ public class Menus {
     Random alea = new Random();    
     StringBuilder linha = new StringBuilder();
     int acertos[]= new int[200];
+    int posição[]= new int[acertos.length];
         
      
     
@@ -257,7 +258,20 @@ public class Menus {
                 }           
             } 
             i++;  
-        }    
+        }
+
+       for (i = 1; i < acertos.length; i++) {
+           for (int j = 0; j < i; j++) {
+                if (acertos[i] > acertos[j]) {
+                    int temp = acertos[i];
+                    acertos[i] = acertos[j];
+                    acertos[j] = temp;
+                }
+            }
+        }
+        
+        
+       
               
         
         try(BufferedWriter Buff = new BufferedWriter(new FileWriter("Resultado.txt"))){
