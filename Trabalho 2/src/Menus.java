@@ -1,18 +1,18 @@
 import java.util.Scanner;
 import java.util.Set;
+
+import javax.swing.text.StyledEditorKit.BoldAction;
+import javax.swing.text.html.HTMLDocument.BlockElement;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+
 import java.util.Random;
 
 public class Menus {
@@ -24,13 +24,14 @@ public class Menus {
     List<List<Integer>> Sorteio = new ArrayList<>();  
     List<Integer> NumSorteio = new ArrayList<>();   
     List<List<Integer>> JogosLançados = new ArrayList<>();
+    
     Random alea = new Random();    
     StringBuilder linha = new StringBuilder();
     int acertos[]= new int[200];
     int posição[]= new int[acertos.length];
         
      
-    
+    //Menu incial
     void MenuInicial(){
         System.out.println("----------------------- MEGA SENA -----------------------");
         System.out.println("1. Lançar jogos");
@@ -43,6 +44,7 @@ public class Menus {
         System.out.print("Escolha uma opção ->");
         int opMain = leitor.nextInt();
 
+        //Switch para poder fazer as escolhas das opções do menu
         switch(opMain){
             case 1:
                 Lançamento();
@@ -103,7 +105,7 @@ public class Menus {
         }
 
     }
-
+    //Metodo para fazer o lançamento dos jogos.
     void Lançamento(){
         ver = 1;
         LimpJogos();
@@ -114,6 +116,7 @@ public class Menus {
         System.out.print("Informe o número de jogos a ser lançados ->");
         QuantJogo = leitor.nextInt();
 
+        //Contar as quantidades de jogos
         for(int cont2 =0 ; cont2 < QuantJogo; cont2++){
             System.out.println("\nJogo " + (cont2 + 1) + ":");
             List<Integer> Jogos = new ArrayList<>();
@@ -127,7 +130,7 @@ public class Menus {
             leitor.nextLine(); 
 
     
-
+            //Colocando os numeros de jogos de modo manual.
             if (opmodo == 1){              
                     for(i=0; i<6; i++){
                         System.out.println("---------------------------------------------------------------");
@@ -146,7 +149,7 @@ public class Menus {
                         Jogos.add(NumEsc);                  
                     }
                 
-                       
+              //Colocando os numeros de jogos de forma aleátoria.     
             } else if (opmodo == 2){       
                 Set<Integer> NumeroAleatorio = new HashSet<>();         
                 while(NumeroAleatorio.size() < 6){               
@@ -163,7 +166,7 @@ public class Menus {
              
     }
         
-    
+    //Método para salvar os jogos que foram lançados.
     void SalvarJogo(){
         try(BufferedWriter Buff = new BufferedWriter(new FileWriter("Lancados.txt"))){
             for(List<Integer> Jogos : JogosLançados){
@@ -186,7 +189,7 @@ public class Menus {
     }   
     
     
-    
+    //Método para poder mostrar os jogos que foram mostrados.
     void MostrarJogos(){
         System.out.print("\n----------JOGOS LANÇADOS----------\n");
         for(List<Integer> Jogos : JogosLançados){
@@ -198,7 +201,7 @@ public class Menus {
         MenuInicial();
         }
     
-    
+    //Método para fazer o sorteio dos jogos.
     void Sorteio(){
         LimpSort();
         
@@ -213,6 +216,7 @@ public class Menus {
         SalvarSorteio();
     }
     
+    //Salando o sorteio.
     void SalvarSorteio(){       
         File arquivo = new File("Sorteio.txt");
         arquivo.delete();
@@ -240,19 +244,19 @@ public class Menus {
     }
     
     
-
+    //Verificando os acertos do sorteio.
     void VerificarAcertos(){
-        List<Integer> Jogos = new ArrayList<>();
+       
         int i=0;
         cont=0;
         for(List<Integer> Jogos : JogosLançados){            
             for(int num : Jogos){
                 boolean temAcerto = false;
-                for (List<Integer> sorteio : Sorteio) {
+                for (List<Integer> sorteio : Sorteio) {             
                     if (sorteio.contains(num)) {
                         temAcerto = true;
                         if (temAcerto) {
-                            acertos[i] += 1;
+                            acertos[i]+= 1;
                         }
                         break;
                     }
@@ -260,32 +264,27 @@ public class Menus {
             } 
             i++;  
         }
-
-       for (i = 1; i < acertos.length; i++) {
-           for (int j = 0; j < i; j++) {
+       
+        //Ordenando os jogos lançados.
+        for (i = 1; i < acertos.length; i++) {
+            for (int j = 0; j < i; j++) {
                 if (acertos[i] > acertos[j]) {
-                    int temp = acertos[i];
-                    List<Integer> temp2 = JogosLançados.get(i);
-                    List<Integer> tempj = Jogos.get();
-                for()
-                    
-                
-                    JogosLançados.set(i, );
-                    
+                    int temp = acertos[i]; 
+                    List<Integer> tempi = JogosLançados.get(i);  
+                    List<Integer> tempj = JogosLançados.get(j);  
+   
+                    JogosLançados.set(i, tempj);
                     acertos[i] = acertos[j];
-                    JogosLançados.set(j, temp2);
+                   
+                    JogosLançados.set(j, tempi); 
                     acertos[j] = temp;
-            }
+                }
             }
         }
         
-        
-       
-              
-        
+        //Salvando os resultados dos jogos
         try(BufferedWriter Buff = new BufferedWriter(new FileWriter("Resultado.txt"))){
             for(List<Integer> Jogos : JogosLançados){
-
                 StringBuilder linha = new StringBuilder();
                 for(int num : Jogos){
                     linha.append(num).append(" ");
@@ -307,7 +306,7 @@ public class Menus {
           
     }
 
-
+    //Limpando o sorteio para realizar novamente.
     void LimpSort() {
         Sorteio.clear();
         NumSorteio.clear();
@@ -316,7 +315,8 @@ public class Menus {
             acertos[i] = 0;
         }
     }
-
+    
+    //Limoando os jogos para realizar os jogos novamente.
     void LimpJogos() {
         JogosLançados.clear();
         List<Integer> Jogos = new ArrayList<>();
@@ -324,12 +324,56 @@ public class Menus {
         for(i=0; i<QuantJogo; i++){
             acertos[i] = 0;
         }
-        
-
+         
     }
-   
+    boolean teste, quadra, quina, sena;
+
+    void MostrarGanhadores(){
+        List<Integer> Jogos = new ArrayList<>();
+        for(i=0; i<acertos.length; i++){
+            if(acertos[i] < 4){
+                teste = true;
+            } 
+            if(acertos[i] == 5){
+                quina = true;
+            }
+            if(acertos[i] == 6){
+                sena = true;
+            }
+            if(acertos[i] == 4){
+                quadra = true;
+            }
+                     
+        }
+       
+        if(teste){
+            util.limpatela();
+            System.out.print("----------NÃO HÁ GANHADORES----------");
+            MenuInicial();
+        }
+         
+        if(!teste){
+            if(quadra){
+                
+                for(i=0; i<acertos.length; i++){
+                    if(acertos[i]==4){
+                        List<Integer> quadra = Jogos.get(JogosLançados.get(i));
+                           
+                    }
+            }          
+            }
+        }
+
+       
+
+ 
+    
+    }
+
 
 }
+
+
 
 
 
