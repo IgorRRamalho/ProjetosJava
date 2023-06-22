@@ -18,7 +18,7 @@ import java.util.Random;
 public class Menus {
 
     TrabalhoT2 princi = new TrabalhoT2();
-    int i, cont, QuantJogo, NumEsc, ver;
+    int i, cont, QuantJogo, NumEsc, ver, g;
     Scanner leitor = new Scanner(System.in);
     Ajuda util = new Ajuda();
     List<List<Integer>> Sorteio = new ArrayList<>();  
@@ -242,6 +242,7 @@ public class Menus {
     
 
     void VerificarAcertos(){
+        List<Integer> Jogos = new ArrayList<>();
         int i=0;
         cont=0;
         for(List<Integer> Jogos : JogosLançados){            
@@ -264,9 +265,17 @@ public class Menus {
            for (int j = 0; j < i; j++) {
                 if (acertos[i] > acertos[j]) {
                     int temp = acertos[i];
+                    List<Integer> temp2 = JogosLançados.get(i);
+                    List<Integer> tempj = Jogos.get();
+                for()
+                    
+                
+                    JogosLançados.set(i, );
+                    
                     acertos[i] = acertos[j];
+                    JogosLançados.set(j, temp2);
                     acertos[j] = temp;
-                }
+            }
             }
         }
         

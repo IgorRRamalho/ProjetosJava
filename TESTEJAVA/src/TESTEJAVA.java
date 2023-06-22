@@ -9,9 +9,22 @@ public class TESTEJAVA {
         acertos [4] = 13;
 
 
+            
+        
+        
+        for(int num : ListNum){
+                System.out.print(num)
+            }
 
-
-          for (int i = 1; i < acertos.length; i++) {
+          
+        
+        
+        
+        
+        
+        
+        
+        for (int i = 1; i < acertos.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (acertos[i] > acertos[j]) {
                     int temp = acertos[i];
