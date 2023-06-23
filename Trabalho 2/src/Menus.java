@@ -1,9 +1,8 @@
 import java.util.Scanner;
 import java.util.Set;
-
+import java.util.stream.Collectors;
 import javax.swing.text.StyledEditorKit.BoldAction;
 import javax.swing.text.html.HTMLDocument.BlockElement;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
 import java.util.Random;
 
 public class Menus {
@@ -24,6 +22,9 @@ public class Menus {
     List<List<Integer>> Sorteio = new ArrayList<>();  
     List<Integer> NumSorteio = new ArrayList<>();   
     List<List<Integer>> JogosLançados = new ArrayList<>();
+    List<String> quadra = new ArrayList<>();
+    List<String> quina = new ArrayList<>();
+    List<String> sena = new ArrayList<>();
     
     Random alea = new Random();    
     StringBuilder linha = new StringBuilder();
@@ -77,6 +78,10 @@ public class Menus {
                 else{
                 VerificarAcertos();
                 }
+                break;
+
+            case 5: 
+                MostrarGanhadores();
                 break;
 
             case 6:
@@ -246,7 +251,7 @@ public class Menus {
     
     //Verificando os acertos do sorteio.
     void VerificarAcertos(){
-       
+        
         int i=0;
         cont=0;
         for(List<Integer> Jogos : JogosLançados){            
@@ -326,52 +331,50 @@ public class Menus {
         }
          
     }
-    boolean teste, quadra, quina, sena;
+   
 
     void MostrarGanhadores(){
-        List<Integer> Jogos = new ArrayList<>();
+
         for(i=0; i<acertos.length; i++){
-            if(acertos[i] < 4){
-                teste = true;
-            } 
-            if(acertos[i] == 5){
-                quina = true;
+            
+             if(acertos[i] == 5){
+            
+                quina.add(JogosLançados.get(i).stream().map(Object::toString).collect(Collectors.joining(" ")));
+                System.out.print(quina);
             }
             if(acertos[i] == 6){
-                sena = true;
-            }
-            if(acertos[i] == 4){
-                quadra = true;
-            }
-                     
-        }
-       
-        if(teste){
-            util.limpatela();
-            System.out.print("----------NÃO HÁ GANHADORES----------");
-            MenuInicial();
-        }
-         
-        if(!teste){
-            if(quadra){
                 
-                for(i=0; i<acertos.length; i++){
-                    if(acertos[i]==4){
-                        List<Integer> quadra = Jogos.get(JogosLançados.get(i));
-                           
-                    }
-            }          
+                sena.add(JogosLançados.get(i).stream().map(Object::toString).collect(Collectors.joining(" ")));
+                System.out.print(sena);
             }
+            if(acertos[i] == 4){            
+                quadra.add(JogosLançados.get(i).stream().map(Object::toString).collect(Collectors.joining(" ")));
+                System.out.print(quadra);
+            }        
         }
+          util.limpatela();
+            System.out.print("----------------------- GANHADORES -----------------------\n");
+            System.out.println("Ganhadores QUADRA: "+quadra);
+            System.out.println("Ganhadores QUINA: "+quina);
+            System.out.println("Ganhadores SENA: "+sena);
+            System.out.print("-----------------------------------------------------------");
+            System.out.println("\n\tPRESSIONE ALGUMA TECLA E ENTER PARA VOLTAR A MENU INICIAL");
+            leitor.nextLine();
+            leitor.nextLine();
+            util.limpatela();
+            MenuInicial();
+            
+       
+    }
 
        
 
  
     
-    }
-
-
 }
+
+
+
 
 
 

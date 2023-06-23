@@ -8,16 +8,9 @@ import java.io.IOException;
 public class TrabalhoT2 {
     public static void main(String[] args) throws Exception {
         
-        int i, cont, cont2;
-        Scanner leitor = new Scanner(System.in);
-        Random alea = new Random();
+        
         Menus menu = new Menus();
-        String nomeArquivo = ("Lancados.txt");
-             
-        Path Caminho = Paths.get("D:/GitHubvProjetosJava/Trabalho 2/src/Lancados.txt");
-        
-        
-        
+         
         menu.MenuInicial();
 
 
