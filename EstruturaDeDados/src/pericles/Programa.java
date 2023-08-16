@@ -5,9 +5,11 @@ public class Programa {
     public static void menu(){    
         System.out.println("\n*** Menu ***");
         System.out.println("1 - Inserir na Fila");
-        System.out.println("2 - Remover da Fila");
-        System.out.println("3 - Imprimir");    
-        System.out.println("4 - Sair\n");
+        System.out.println("2 - Remover da Fila - LIFO");
+        System.out.println("3 - Remover da fila - FIFO"); 
+        System.out.println("4 - Remover da fila - Escolha do Usuário"); 
+        System.out.println("5 - Imprimir"); 
+        System.out.println("6 - Sair\n");
     }
     
     public static void main(String[] args) {
@@ -29,14 +31,21 @@ public class Programa {
                     break;
                     
                 case 3:
+                    F.removefifo();
+                    break;
+                
+                case 4:
+                    F.removeesc();
+                    break;
+                
+                case 5:
                     F.imprime();
                     break;
-                    
-                case 4:
+          
+                case 6:
                     System.out.println("\nSaindo...\n");   
-                    break;         
-                    
-                 
+                    break;       
+                                
             }
         }   
     } 
