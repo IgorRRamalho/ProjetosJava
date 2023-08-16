@@ -29,7 +29,7 @@ public class Ex01 {
 
         for(i=0; i<na; i++){
             if(notas[i]>=6){
-                System.out.printf("\nO aluno %d foi acima da média(%f.2)", i+1, notas[i]);
+                System.out.printf("\nO aluno %d foi acima da média(%.2f)", i+1, notas[i]);
             }
         }
     }
