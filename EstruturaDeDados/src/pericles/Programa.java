@@ -16,7 +16,7 @@ public class Programa {
         int opcao=0;
         Fila F = new Fila();
                 
-        while(opcao != -1){
+        while(opcao != 6){
             menu();
             opcao = Input.readInt("Digite a opcao: ");
             
