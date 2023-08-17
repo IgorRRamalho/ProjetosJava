@@ -18,7 +18,12 @@ public class AlunoC {
         
     }
 
-
+    public void ListaGeralAlunoM(){
+        for(AlunoM dados: vetAluno){
+            dados.ImprimeAtrbutos();
+            
+        }
+    }
 
 }
 
