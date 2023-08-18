@@ -12,11 +12,13 @@ public class TadsAluno {
 
         
        
-        System.out.println(alex.getIdade());
         
-        controle.InsereAlunoM(alex);
-        controle.InsereAlunoM(jao);
-        controle.ListaGeralAlunoM();
+        
+        //controle.InsereAlunoM(alex);
+        //controle.InsereAlunoM(jao);
+        //controle.ListaGeralAlunoM();
+        
+        controle.BuscaPorRA2(191807);
         
 
     }
