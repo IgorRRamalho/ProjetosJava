@@ -113,7 +113,9 @@ public class fila{
         for(int i=0; i<getTamanho(); i++){
             int num = aux.getInfo();
             if(num == esc && i == 0){
+                test = false;
                 removeInicio();
+                break;
             }else if(num == esc){
                 int valor=aux.getInfo();
                 tipoNo prex = aux.getProx();
