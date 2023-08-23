@@ -5,7 +5,7 @@ public class Programa {
     public static void menu(){    
         System.out.println("\n*** Menu ***");
         System.out.println("1 - Inserir na Fila");
-        System.out.println("2 - Remover da Fila - LIFO");
+        System.out.println("2 - Remover da Fila - FILO");
         System.out.println("3 - Remover da fila - FIFO"); 
         System.out.println("4 - Remover da fila - Escolha do Usuário"); 
         System.out.println("5 - Imprimir"); 
@@ -27,7 +27,7 @@ public class Programa {
                     
                 
                 case 2:
-                    F.remove();
+                    F.filo();
                     break;
                     
                 case 3:

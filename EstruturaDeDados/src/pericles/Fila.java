@@ -18,7 +18,7 @@ public class Fila {
         else
             System.out.println("Vetor sem espaço!");
     }
-    public void remove(){
+    public void filo(){
         if(qtdPessoa>0){
            qtdPessoa--;
            
@@ -51,10 +51,6 @@ public class Fila {
             System.out.println("Vetor vazio!");
         }
     }
-    
-    
-    
-    
     
     
     public void imprime(){
