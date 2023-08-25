@@ -84,6 +84,7 @@ public class fila{
             p = aux.getProx();
             System.out.println("Elemento "+ p.getInfo() +" removido com sucesso! ");
             aux.setProx(null);
+            
             this.tamanho--;
          
         }
