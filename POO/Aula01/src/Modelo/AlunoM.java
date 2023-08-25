@@ -8,6 +8,7 @@ public class AlunoM {
     private int idade;
     private char sexo;
     private int codCurso;
+    private CursoM curso;
 
     public void AlunoM() {
         ra = 0;
@@ -16,15 +17,17 @@ public class AlunoM {
         idade = 0;
         sexo = 0;
         codCurso = 0;
+        curso=null;
     }
 
-    public AlunoM(int ra, String cpf, String nome, int idade, char sexo, int codCurso) {
+    public AlunoM(int ra, String cpf, String nome, int idade, char sexo, int codCurso, CursoM curso) {
         this.ra = ra;
         this.cpf = cpf;
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
         this.codCurso = codCurso;
+        this.curso = curso;
     }
 
     public int getRa() {
@@ -84,6 +87,9 @@ public class AlunoM {
         System.out.println("SEXO->" + getSexo());
         System.out.println("IDADE->" + getIdade());
         System.out.println("CURSO->" + getCodCurso());
+        this.curso.ImprimeCurso();
     }
+
+
 
 }
