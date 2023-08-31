@@ -142,11 +142,34 @@ public class fila{
     }
 
 
+
+    public void InserirPos(int esc, int pos){
+        if(cabeca == null || getTamanho() == 0){
+            System.out.println("\n-------------------------Lista Vazia-------------------------");
+        }else if(pos>getTamanho()){
+        System.out.println("\n-------------------------Posição Inválida-------------------------");
+        }else{
+        
+        tipoNo aux = cabeca;
+        tipoNo aux2 = cabeca;
+        tipoNo valor = new tipoNo();
+        valor.setInfo(esc);
+        for(int i=0; i<pos-2; i++){
+            aux = aux.getProx();
+        }
+        aux2 = aux.getProx();
+        aux.setProx(valor);
+        aux = aux.getProx();
+        aux.setProx(aux2);
+        }
+    }
+
+
     public void menu(){
         int valor,opcao=0;
         System.out.print("\n------------ Menu ------------\n");
         while(opcao!=-1){
-            opcao = Input.readInt("\nDigite a opcao: \n(1) Insere Inicio \n(2) Insere Fim \n(3) Remove Inicio \n(4) Remove Fim \n(5) Imprime\n(6) Remover Escolhido\n(-1) Sair \nOpcao: ");
+            opcao = Input.readInt("\nDigite a opcao: \n(1) Insere Inicio \n(2) Insere Fim \n(3) Remove Inicio \n(4) Remove Fim \n(5) Imprime\n(6) Remover Escolhido\n(7) Inserir Posição\n(-1) Sair \nOpcao: ");
             switch(opcao){
                 case 1:
                     valor = Input.readInt("Valor: ");
@@ -178,6 +201,12 @@ public class fila{
                     }
                     int esc = Input.readInt("Insira o valor a ser removido: ");
                     removeresc(esc);
+                    break;
+
+                case 7:
+                    esc = Input.readInt("Insira o valor a ser colocado: ");
+                    int pos = Input.readInt("Digite a posição desejada ->");
+                    InserirPos(esc, pos);
                     break;
 
                 case -1: //sair
