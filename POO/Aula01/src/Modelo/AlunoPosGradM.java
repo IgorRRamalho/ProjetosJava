@@ -65,6 +65,15 @@ public void setTipo(char tipo) {
         System.out.println("ANO ENTRADA: "+ getAnoEntrado());
         System.out.println("PRAZO: "+ getPrazo());
         System.out.println("TIPO: "+ getTipo());
+        System.out.println("--------------------DADOS GERAIS--------------------");
+        System.out.println("RA->" + getRa());
+        System.out.println("CPF->" + getCpf());
+        System.out.println("NOME->" + getNome());
+        System.out.println("SEXO->" + getSexo());
+        System.out.println("IDADE->" + getIdade());
+        System.out.println("CURSO->" + getCodCurso());
+        
+        
 
     }
     

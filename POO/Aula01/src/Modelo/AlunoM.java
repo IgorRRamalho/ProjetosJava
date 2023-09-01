@@ -23,7 +23,7 @@ public class AlunoM {
     public AlunoM(int ra, String cpf, String nome, int idade, char sexo, int codCurso, CursoM curso) {
         this.ra = ra;
         this.cpf = cpf;
-        this.nome = nome;
+        this.nome = nome; 
         this.idade = idade;
         this.sexo = sexo;
         this.codCurso = codCurso;
