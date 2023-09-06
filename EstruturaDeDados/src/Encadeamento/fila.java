@@ -10,7 +10,7 @@ public class fila{
         if(cabeca == null){
             cabeca = new tipoNo();
             cabeca.setInfo(info);
-            cabeca.setProx(null);
+            cabeca.setProx(null);   
             this.tamanho++;
         }else{
             tipoNo aux,novo;
@@ -50,13 +50,14 @@ public class fila{
 
 
   public void insereInicio(int info){
-        tipoNo aux,novo;
+        tipoNo aux;
 
         if(cabeca == null){
             cabeca = new tipoNo();
             cabeca.setInfo(info);
             cabeca.setProx(null);
             this.tamanho++;
+            System.out.println("\n------------------Elemento "+info+" ADICIONADO------------------");
 
         }else{
             aux = cabeca;
@@ -64,6 +65,7 @@ public class fila{
             cabeca.setInfo(info);
             cabeca.setProx(aux);
             this.tamanho++;
+            System.out.print("------------------Elemento "+info+" ADICIONADO------------------");
 
         }
     }
@@ -76,7 +78,7 @@ public class fila{
             this.tamanho--;
         }else{
             tipoNo aux = cabeca;
-            tipoNo ult;
+           
             for(int i =0; i<getTamanho()-2; i++){
                 aux = aux.getProx();
             }
@@ -144,10 +146,10 @@ public class fila{
 
 
     public void InserirPos(int esc, int pos){
-        if(cabeca == null || getTamanho() == 0){
-            System.out.println("\n-------------------------Lista Vazia-------------------------");
-        }else if(pos>getTamanho()){
-        System.out.println("\n-------------------------Posição Inválida-------------------------");
+        if(pos>1 && pos>getTamanho()){
+            System.out.println("\n-------------------------Posição Inválida-------------------------");
+        }else if(cabeca == null || pos==1 ){
+            insereInicio(esc);
         }else{
         
         tipoNo aux = cabeca;
@@ -161,6 +163,7 @@ public class fila{
         aux.setProx(valor);
         aux = aux.getProx();
         aux.setProx(aux2);
+        System.out.println("\n------------------Elemento "+esc+" ADICIONADO------------------");
         }
     }
 
@@ -169,7 +172,7 @@ public class fila{
         int valor,opcao=0;
         System.out.print("\n------------ Menu ------------\n");
         while(opcao!=-1){
-            opcao = Input.readInt("\nDigite a opcao: \n(1) Insere Inicio \n(2) Insere Fim \n(3) Remove Inicio \n(4) Remove Fim \n(5) Imprime\n(6) Remover Escolhido\n(7) Inserir Posição\n(-1) Sair \nOpcao: ");
+            opcao = Input.readInt("\nDigite a opcao: \n(1) Insere Inicio \n(2) Insere Fim \n(3) Remove Inicio \n(4) Remove Fim \n(5) Imprime\n(6) Remover Escolhido\n(7) Inserir Posição\n(-1) Sair \nOpção: ");
             switch(opcao){
                 case 1:
                     valor = Input.readInt("Valor: ");

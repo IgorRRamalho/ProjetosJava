@@ -8,41 +8,41 @@ import Modelo.AlunoPosGradM;
 public class AlunoPosGradC extends AlunoC{
     
     
-    public ArrayList<AlunoPosGradM> vetAlunoPos;
+    public ArrayList<AlunoPosGradM> vetAluno;
     
 
     public AlunoPosGradC(){
 
-        vetAlunoPos=new ArrayList<AlunoPosGradM>();
+        vetAluno=new ArrayList<AlunoPosGradM>();
 
     }
     
     
     public void insereAlunoPosGrad(AlunoPosGradM aluno){
-        vetAlunoPos.add(aluno);
+        vetAluno.add(aluno);
     }
 
 
     public void ListaGeralAlunoPosGradM(){
-        for(AlunoM dados: vetAlunoPos){
+        for(AlunoM dados: vetAluno){
             dados.ImprimeAtrbutos();
         }
     }
 
 
     public void BuscaPorRAPos(int ra){
-        for(int i=0; i < vetAlunoPos.size(); i++){
-            if(ra == vetAlunoPos.get(i).getRa()){
+        for(int i=0; i < vetAluno.size(); i++){
+            if(ra == vetAluno.get(i).getRa()){
 
-                System.out.println(" "+vetAlunoPos.get(i).getRa());
+                System.out.println(" "+vetAluno.get(i).getRa());
             }
         }
     }
 
     public void RemoveAluPos (int ra){
-        for(int i=0; i < vetAlunoPos.size(); i++){
-            if(ra == vetAlunoPos.get(i).getRa()){
-                vetAlunoPos.remove(i);
+        for(int i=0; i < vetAluno.size(); i++){
+            if(ra == vetAluno.get(i).getRa()){
+                vetAluno.remove(i);
             }
         }
     }

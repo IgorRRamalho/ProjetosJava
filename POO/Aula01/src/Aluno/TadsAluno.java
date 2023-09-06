@@ -24,9 +24,12 @@ public class TadsAluno {
     
         AlunoPosGradM aluno1 = new AlunoPosGradM(191807, "07341691166", "Igor", 18, 'M', 2, tads, "Pedro", 'S', 2015, 2, 'S');
       
-        controlePos.RemoveAluPos(191807);
+         controlePos.BuscaPorRAPos(191807);
 
-        controlePos.ListaGeralAlunoPosGradM();
+        
+
+        
+        
 
         
 
