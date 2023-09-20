@@ -27,11 +27,11 @@ public class ListaE {
            
           
             if(cabeca ==null || tamanho<2){
-                 System.out.print("\n(5) Inserir Elemento \t(6)Inserir Inicio\t(10) Imprimir\n(-1) Sair \nOpção: ");
+                 System.out.print("\n(5) Inserir Elemento \t(6)Inserir Inicio\t(7) Imprimir\n(-1) Sair \nOpção: ");
             }else if(tamanho > 1 && cabeca2==null){
-                 System.out.print("\n(1)Remover Escolhido\t(2) Dividir Lista\n(5) Inserir Elemento \t(6)Inserir Inicio \n(10) Imprimir\n(-1) Sair \nOpção: ");
+                 System.out.print("\n(1)Remover Escolhido\t(2) Dividir Lista\n(5) Inserir Elemento \t(6)Inserir Inicio \n(7) Imprimir\n(-1) Sair \nOpção: ");
             }else if(cabeca2 != null){
-                 System.out.print("\n(1)Remover Escolhido\t(3)Concatenar Lista \n(4)Criar Lista 3\t(7)Separar Impars e Pars\t(10) Imprimir\n(-1) Sair \nOpção: ");
+                 System.out.print("\n(1)Remover Escolhido\t(3)Concatenar Lista \n(4)Criar Lista 3\t(7) Imprimir\n(-1) Sair \nOpção: ");
             }else{
                 System.out.println("MENU");
             }
@@ -75,23 +75,6 @@ public class ListaE {
                     break;
 
                 case 7:
-                    SepaP();
-                    SepaI();
-                    
-                    
-                    
-                    break;
-
-                case 8:
-                    break;
-
-                case 9:
-                    
-                    break;
-                    
-                  
-                
-                case 10:
                     imprime();
                     break;
                 
@@ -116,8 +99,7 @@ public class ListaE {
             System.out.println("-------------------------Lista Vazia-------------------------");
         }
             
-        if(cabeca != null || cabeca2 != null || cabeca3 != null){
-             System.out.println("Impressao: ");
+        
         if(cabeca != null){
             System.out.print("Lista 1: ");
             while (aux != null) {
@@ -144,7 +126,7 @@ public class ListaE {
         }
     }
         
-    }
+    
 
 
     public void removeresc(int esc){
@@ -341,179 +323,8 @@ public class ListaE {
     }
 
 
-    public void SepaI(){
-        tipoNo aux, aux2,aux3;
-        aux = cabeca;
-
-        
-        aux2 = cabeca2;
-        int contador;
-            contador =0;
-        
-        
-        
-      if(cabeca.getProx() == null && cabeca.getInfo()%2 != 0){  
-                    
-                
-                if(cabeca2.getProx() != null){
-                    
-                    while(aux2.getProx() !=null){
-                        aux2 = aux2.getProx();
-                    }
-                    aux2.setProx(aux);
-                    cabeca = null;
-                }else{
-                   cabeca2.setProx(cabeca);
-                   cabeca=null;
-                }
 
 
-
-        }else{
-           
-
-           
-            while(aux.getProx() != null){
-                System.out.println("WHILE RODOU AUX");
-                aux3 = cabeca;
-               
-                contador++;
-                if(aux.getInfo()%2 != 0){
-                    System.out.println("ENTROU NO IF != 0");
-                    if(contador == 1){
-                         System.out.println("ENTROU NO IF CONTADOR");
-                        if(cabeca2==null){
-                            cabeca2 = aux3;
-                            cabeca.setProx(cabeca.getProx());
-                        }else{
-                        while(aux.getProx() != null){
-                            aux = aux.getProx();
-                        }
-                        aux.setProx(cabeca);
-                        aux = aux.getProx();
-                        aux.setProx(null);
-                        cabeca = aux3.getProx();
-                        }
-                        
-                    }else{
-                        System.out.println("SAIU DO IF CONTADOR");
-                           for(int i=0; i<contador-1; i++){
-                            aux3 = aux3.getProx();
-                            }
-                            aux3.getProx().setProx(aux.getProx());
-                    }
-                
-                  
-                    while(aux2.getProx() !=null){
-                        aux2 = aux2.getProx();
-                    }
-                    aux2.setProx(aux);
-                    
-                    aux2.getProx().setProx(null);
-                    
-
-            
-                }else{
-                    
-                    aux =aux.getProx();
-                }
-                
-               
-            }
-            System.out.print("IMPARES DA LISTA 1 MOVIDOS");
-            
-
-        }
-    
-    
-    }
-
-    public void SepaP(){
-            tipoNo aux, aux2,aux3;
-             aux = cabeca2;
-
-    
-                aux2 = cabeca;
-
-            
-              int contador;
-              contador = 0;
-        
-        
-        
-        if(cabeca2.getProx() == null && cabeca2.getInfo()%2 == 0){  
-                        
-                if(cabeca.getProx() != null){
-                    
-                    while(aux.getProx() !=null){
-                        aux = aux.getProx();
-                    }
-                    aux.setProx(aux2);
-                    cabeca2 = null;
-                }else{
-                   cabeca.setProx(cabeca2);
-                   cabeca2=null;
-                }
-
-
-        }else{
-           
-            while(aux.getProx() != null){
-                System.out.println("WHILE RODOU AUX");
-                aux3 = cabeca2;
-               
-                contador++;
-                if(aux.getInfo()%2 == 0){
-                    System.out.println("ENTROU NO IF != 0");
-                    if(contador == 1){
-                        System.out.println("ENTROU NO IF CONTADOR");
-                        if(cabeca==null){
-                            cabeca = aux3;
-                            cabeca2.setProx(cabeca2.getProx());
-                        }else{
-                        while(aux2.getProx() != null){
-                            aux2 = aux2.getProx();
-                        }
-                        aux2.setProx(cabeca2);
-                        aux2 = aux2.getProx();
-                        aux2.setProx(null);
-                        cabeca2 = aux3.getProx();
-                        }
-                        
-                    }else{
-                        System.out.println("SAIU DO IF CONTADOR");
-                           for(int i=0; i<contador-1; i++){
-                            aux3 = aux3.getProx();
-                            }
-                            aux3.getProx().setProx(aux.getProx());
-                    }
-                
-                  
-                    while(aux2.getProx() !=null){
-                        aux2 = aux2.getProx();
-                    }
-                    aux2.setProx(aux);
-                    
-                    aux = aux2.getProx();
-                    aux.setProx(null);
-
-            
-                }else{
-                    
-                    aux =aux.getProx();
-                }
-                
-               
-            }
-            System.out.print("PARES DA LISTA 2 MOVIDOS");
-
-        }
-    
-    
-    
-    
-    }
-    
 
 
 

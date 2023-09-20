@@ -1,7 +1,8 @@
 package ListasEncadeadas;
 public class tipoNo{
 	public int info;
-	public tipoNo prox;
+	public tipoNo prox, ant;
+
 	
 	public tipoNo(){}
 	
@@ -20,6 +21,16 @@ public class tipoNo{
 	}
 	public tipoNo getProx(){
 		return prox;
+	}
+
+	
+	public tipoNo getAnt() {
+		return ant;
+	}
+
+
+	public void setAnt(tipoNo ant) {
+		this.ant = ant;
 	}
 
 	
