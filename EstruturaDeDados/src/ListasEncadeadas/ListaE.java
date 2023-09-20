@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class ListaE {
 
+    //EXERCÍCIOS DO 1 AO 6
+
     Scanner leitor = new Scanner(System.in);
     int tamanho;
     int teste=0;
