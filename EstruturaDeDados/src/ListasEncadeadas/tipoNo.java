@@ -8,6 +8,30 @@ public class tipoNo{
 	
 	
 	
+	public tipoNo getUlt() {
+		return ult;
+	}
+
+
+
+	public void setUlt(tipoNo ult) {
+		this.ult = ult;
+	}
+
+
+
+	public tipoNo getPri() {
+		return pri;
+	}
+
+
+
+	public void setPri(tipoNo pri) {
+		this.pri = pri;
+	}
+
+
+
 	public void setInfo(int info){
 		this.info=info;
 	}
