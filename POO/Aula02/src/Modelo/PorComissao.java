@@ -4,7 +4,7 @@ public class PorComissao extends EmpregadoM{
 
     
     private int vendas;
-    private float ValorFixo, comissao, salario;
+    private float ValorFixo, comissao;
     
     public PorComissao(int rf, String dataContratação, int vendas, float valorFixo, float comissao) {
         super(rf, dataContratação);

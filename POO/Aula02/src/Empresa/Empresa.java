@@ -1,13 +1,18 @@
 package Empresa;
 
-import Modelo.*;
+import Controle.BancoDeDados;
 
 public class Empresa {
     public static void main(String[] args) throws Exception {
         
 
-        ChefeM cf=new ChefeM(0,"14/09/2023", 0);
+      BancoDeDados db =  new BancoDeDados();
+
+      db.abrirConexao();
 
         
+
+
+
     }
 }

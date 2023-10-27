@@ -2,7 +2,7 @@ package Modelo;
 
 public class PorItem extends EmpregadoM {
     
-    private float ValorPProducao, salario;
+    private float ValorPProducao;
     private int qdadeProduzida;
     
     public PorItem(int rf, String dataContratação, float valorPProducao, int qdadeProduzida) {

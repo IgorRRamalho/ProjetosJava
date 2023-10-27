@@ -1,7 +1,7 @@
 package Modelo;
 
 public class PorHora {
-    private float valorHora, salario;
+    private float valorHora;
     private int horasTrab;
     
     public PorHora(float valorHora, int horasTrab) {
