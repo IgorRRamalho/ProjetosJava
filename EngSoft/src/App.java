@@ -36,7 +36,6 @@ public class App {
         int Quant = 0, CodProd = 0;
         leitor.nextLine();
         do {
-
             System.out.print("\n Informe o código do produto e a quantidade separados por vírgula ->");
             String input = leitor.nextLine();
 
@@ -74,13 +73,13 @@ public class App {
             br.readLine();
             while ((linha = br.readLine()) != null) {
                 String[] partes = linha.split(";");
-                int codigo = Integer.parseInt(partes[0].trim()); // Remova espaços em branco
-                int quantidadeEstoque = Integer.parseInt(partes[2].trim()); // Remova espaços em branco
+                int codigo = Integer.parseInt(partes[0].trim()); 
+                int quantidadeEstoque = Integer.parseInt(partes[2].trim()); 
 
                 if (codigo == codigoProduto) {
                     quantidadeEstoque -= quantidadeVendida;
                     if (quantidadeEstoque < 0) {
-                        quantidadeEstoque = 0; // Certifique-se de que a quantidade não seja negativa
+                        quantidadeEstoque = 0; 
                     }
 
                     partes[2] = Integer.toString(quantidadeEstoque);

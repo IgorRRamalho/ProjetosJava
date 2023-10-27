@@ -168,7 +168,6 @@ public class ex3 {
         }
 
         imprimeRod();
-
     }
 
     public void imprimeRod() {
@@ -238,47 +237,6 @@ public class ex3 {
         System.out.println("Rodovia " + rodovia + " inserida com sucesso! ");
 
     }
-
-/*public void insereRodovia(String rodovia, String cidade){
-
-
-
-
-    if(cabecaRo == null) {
-        cabecaRo = new Lista();
-        cabecaCi = new Lista();
-        cabecaRo.setRodovia(rodovia);
-        cabecaRo.setProx(null);
-        cabecaCi.setCidade(cidade);
-        cabecaCi.setAnt(null);
-        cabecaCi.setProx(null);
-        cabecaRo.setCidades(cabecaCi);
-        
-        
-    }else{
-        Lista aux, novoRo, novoCi;
-        aux = cabecaRo;
-
-        novoRo = new Lista();
-        cabecaCi = new Lista();
-        novoRo.setRodovia(rodovia);
-        cabecaCi.setCidade(cidade);
-        cabecaCi.setProx(null);
-        cabecaCi.setAnt(null);
-        novoRo.setCidades(cabecaCi);
-        
-
-        while(aux.getProx() != null){
-            aux = aux.getProx();
-        }
-
-        aux.setProx(novoRo);
-        novoRo.setProx(null);
-        
-    }
-    System.out.println("Rodovia " + rodovia + " inserida com sucesso! ");
-
-}*/
 
 
 public boolean Cruzamento(String nomeRodovia1, String nomeRodovia2){
