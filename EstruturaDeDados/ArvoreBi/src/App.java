@@ -114,6 +114,19 @@ public class App {
         return bole;
     }
 
+    public void ImprimirConjunto(Arvore folha){
+        if(folha != null){
+             System.out.println("NÓ->" + raiz.getInfo());  
+            if (raiz.getDir() != null) {
+                System.out.println("DIREITA->" + aux.getInfo());
+            }
+            if (raiz.getEsq() != null) {
+                System.out.println("ESQUERDA->" + aux2.getInfo());
+            }
+
+        }
+    }
+
     public void Imprimir() {
         
         raiz2 = raiz;
