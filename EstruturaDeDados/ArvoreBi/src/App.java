@@ -4,20 +4,19 @@ import java.util.Scanner;
 public class App {
 
     Scanner leitor = new Scanner(System.in);
-    
-    int val, op;
+
+    public int val, op;
     public Arvore raiz, folha, aux, aux2, raiz2;
     ArrayList<Integer> Nums = new ArrayList<Integer>();
-    boolean test = true;
+    boolean test = true, a = true;
 
     public void menu() {
 
         op = 0;
 
-    
         while (op != -1) {
             System.out.println("\n**********************MENU**********************");
-            System.out.println("1-Inserir\t2-Buscar\n3-Remover\t-1-Sair\n");
+            System.out.println("1-Inserir\t2-Buscar\n3-Remover\t4-Imprimir\n-1-Sair\n");
             System.out.print("Opção:");
             op = leitor.nextInt();
 
@@ -32,13 +31,17 @@ public class App {
                     break;
 
                 case 2:
-                    System.out.println("Digite o número a ser buscado->");
-                    val = leitor.nextInt();
+                    Buscar();
+                    if (a) {
+                        System.out.println("--------VALOR NÃO ENCONTRADO--------");
+                    }
                     break;
 
                 case 3:
                     System.out.println("Digite o número a ser removido->");
                     val = leitor.nextInt();
+                    Remover();
+                    break;
 
                 case -1:
                     System.out.println("SAINDO ");
@@ -48,6 +51,7 @@ public class App {
                     Imprimir();
                     break;
 
+
                 default:
                     LimpTela();
                     System.out.println("OPCÃO ERRADA");
@@ -56,34 +60,40 @@ public class App {
         }
     }
 
-    public Arvore Inserir(Arvore No,int valor) {
+    public void Inserir(int valor) {
 
         if (Veri(valor)) {
             test = true;
             Arvore aux;
-
             if (raiz == null) {
-                raiz = new Arvore(valor);  
-                return raiz;  
+                raiz = new Arvore(valor);
+                Nums.add(valor);
+
             } else {
+
                 aux = raiz;
                 folha = new Arvore(valor);
-                
+
                 while (test) {
-                    
 
                     if (valor > aux.getInfo()) {
                         if (aux.getDir() == null) {
-                            raiz.setDir(folha);
-                            
+                            aux.setDir(folha);
+                            test = false;
+                            Nums.add(valor);
+
                         } else {
                             aux = aux.getDir();
                         }
 
                     } else if (valor < aux.getInfo()) {
+
                         if (aux.getEsq() == null) {
-                            raiz.setEsq(folha);
-                            
+
+                            aux.setEsq(folha);
+                            Nums.add(valor);
+                            test = false;
+
                         } else {
                             aux = aux.getEsq();
                         }
@@ -96,17 +106,44 @@ public class App {
 
     }
 
-    public void Buscar(int valor) {
+    public void AndarArvore(Arvore folha) {
 
+        if (folha != null) {
+            if (folha.getInfo() == val) {
+
+                System.out.println("VALOR ENCOTRADO ->" + folha.getInfo());
+                a = false;
+                if (folha.getDir() != null) {
+                    System.out.println("VALOR DA DIRETA DO VALOR BUSCADO->" + folha.getDir().getInfo());
+                } else {
+                    System.out.println("- NÃO TEM VALOR A DIRETA -");
+                }
+                if (folha.getEsq() != null) {
+                    System.out.println("VALOR DA ESQUERDA DO VALOR BUSCADO->" + folha.getEsq().getInfo());
+                } else {
+                    System.out.println("- NÃO TEM VALOR A ESQUERDA -");
+                }
+            }
+            AndarArvore(folha.getDir());
+            AndarArvore(folha.getEsq());
+        }
+    }
+
+    public void Buscar() {
+        System.out.print("Digite o número a ser buscado->");
+        val = leitor.nextInt();
+        AndarArvore(raiz);
     }
 
     public boolean Veri(int valor) {
         boolean bole;
 
         if (Nums.contains(valor)) {
+
             System.out.println("********** NÚMERO JÁ INSERIDO NA ÁRVORE **********");
             bole = false;
         } else {
+
             Nums.add(valor);
             bole = true;
         }
@@ -114,61 +151,97 @@ public class App {
         return bole;
     }
 
-    public void ImprimirConjunto(Arvore folha){
-        if(folha != null){
-             System.out.println("NÓ->" + raiz.getInfo());  
-            if (raiz.getDir() != null) {
-                System.out.println("DIREITA->" + aux.getInfo());
+    public void andarRemover(Arvore folha) {
+
+        if (folha != null) {
+            if (folha.getInfo() > val) {
+
+                andarRemover(folha.getEsq());
+
+            } else if (folha.getInfo() < val) {
+
+                andarRemover(folha.getDir());
+            } else if (folha.getInfo() == val) {
+                if (folha.getDir() != null) {
+                    aux = folha.getDir();
+                }
+                if (folha.getEsq() != null) {
+                    aux2 = folha.getEsq();
+
+                }
+
             }
-            if (raiz.getEsq() != null) {
-                System.out.println("ESQUERDA->" + aux2.getInfo());
+
+        }
+    }
+
+    public void andarUmAntes(Arvore folha) {
+        if (folha != null) {
+            if (folha.getDir().getInfo() == val) {
+                if (aux != null) {
+
+                    folha.setDir(aux);
+                }
+                if (aux2 != null) {
+
+                    aux.getEsq().setEsq(aux2);
+                }
+
+            } else if (folha.getEsq().getInfo() == val) {
+
+                if (aux != null) {
+                    folha.setEsq(aux);
+                }
+                if (aux2 != null) {
+                    aux.getEsq().setEsq(aux2);
+                }
+
+            } else {
+
+                if(val == raiz.getInfo()){
+                    System.out.println("===== A RAIZ NÃO PODE SER REMOVIDA=======");
+                }else if(Nums.contains(val)){
+                    andarUmAntes(folha.getDir());
+                    andarUmAntes(folha.getEsq());
+                    Nums.remove(val);
+
+                }else{
+                    System.out.println("------VALOR INVÁLIDO---------");
+                }
+            
+                
+
             }
+
+        }
+
+    }
+
+    public void Remover() {
+        andarRemover(raiz);
+        andarUmAntes(raiz);
+
+    }
+
+    public void ImprimirConjunto(Arvore folha) {
+
+        if (folha != null) {
+
+            ImprimirConjunto(folha.getDir());
+            ImprimirConjunto(folha.getEsq());
+
+            System.out.println("FOLHA->" + folha.getInfo());
 
         }
     }
 
     public void Imprimir() {
-        
-        raiz2 = raiz;
-        aux = raiz.getDir();
-        aux2 = raiz.getEsq();
-        System.out.println("RAIZ->" + raiz.getInfo());  
-            if (raiz.getDir() != null) {
-                System.out.println("DIREITA->" + aux.getInfo());
-            }
-            if (raiz.getEsq() != null) {
-                System.out.println("ESQUERDA->" + aux2.getInfo());
-            }
-
-        test = true;
-
-        while (test) {
-
-            System.out.println("CENTRAL ->" + aux.getInfo());
-            if (aux.getDir() != null) {
-                System.out.println("DIREITA->" + aux.getDir().getInfo());
-                
-            }
-            if (aux.getEsq() != null) {
-                System.out.println("ESQUERDA->" + aux.getEsq().getInfo());
-            }
-
-            System.out.println("CENTRAL ->" + aux2.getInfo());
-            if (aux2.getDir() != null) {
-                System.out.println("DIREITA->" + aux2.getDir().getInfo());
-            }
-            if (aux2.getEsq() != null) {
-                System.out.println("ESQUERDA->" + aux2.getEsq().getInfo());
-            }
-
-        }
+        System.out.println("RAIZ ->" + raiz.getInfo());
+        ImprimirConjunto(raiz);
 
     }
 
-
-
-
-    public void LimpTela(){
+    public void LimpTela() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 

@@ -30,7 +30,9 @@ public class Arvore {
         this.info = info;
     }
 
-   
+    public void LimpTela(){
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
 
 
 
