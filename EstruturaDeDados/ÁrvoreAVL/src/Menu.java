@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Menu {
+    
+    /** 
+     * @param args
+     * 
+     */
+
     public static void main(String[] args) {
         ArvoreAVL arvore = new ArvoreAVL();
         Scanner scanner = new Scanner(System.in);
@@ -15,6 +21,7 @@ public class Menu {
             int op = scanner.nextInt();
 
             switch (op) {
+                
                 case 1:
                     System.out.print("Digite o valor a ser inserido: ");
                     int info = scanner.nextInt();

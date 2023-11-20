@@ -1,6 +1,11 @@
 public class ArvoreAVL {
     tipoNo raiz;
 
+    
+    /** 
+     * @param no
+     * @return int
+     */
     // Função para obter a altura de um nó
     private int alt(tipoNo no) {
         if (no == null)
@@ -25,7 +30,7 @@ public class ArvoreAVL {
 
         y.alt = Math.max(alt(y.esq), alt(y.dir)) + 1;
         x.alt = Math.max(alt(x.esq), alt(x.dir)) + 1;
-
+            
         return x;
     }
 

@@ -7,9 +7,10 @@ import Modelo.AlunoPosGradM;
 import Modelo.CursoM;
 
 public class TadsAluno {
-    public static void main(String[] args) throws Exception {
-        
 
+    
+   
+    public static void main(String[] args) throws Exception {
         
         
         CursoM tads= new CursoM("TADS", 'N', 6, 1000, 180);
